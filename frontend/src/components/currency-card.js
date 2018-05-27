@@ -75,9 +75,9 @@ const currencyCardStateHandlers = withStateHandlers(
 )
 
 const manipulateActions = withProps(props => ({
-	onChangeRate: e => props.onChangeRate(parseFloat(e.target.value) || 0),
-	onChangeCurrency: e => props.onChangeCurrency(e.target.value),
-	onChangeAmount: e => props.onChangeAmount(parseFloat(e.target.value) / props.rate),
+	onChangeRate: e => props.onChangeRate(props.id, parseFloat(e.target.value) || 0),
+	onChangeCurrency: e => props.onChangeCurrency(props.id, e.target.value),
+	onChangeAmount: e => props.onChangeAmount(props.id, parseFloat(e.target.value) / props.rate),
 }))
 
 const currencyCardStyle = theme => ({
