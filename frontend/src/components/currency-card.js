@@ -49,6 +49,7 @@ const currencyCardPropTypes = setPropTypes({
 	onDelete: PropTypes.func,
 	amount: PropTypes.number,
 	rate: PropTypes.number,
+	currency: PropTypes.string,
 	expanded: PropTypes.bool,
 	availableCurrencies: PropTypes.arrayOf(PropTypes.string)
 })
@@ -75,9 +76,10 @@ const currencyCardStateHandlers = withStateHandlers(
 )
 
 const manipulateActions = withProps(props => ({
-	onChangeRate: e => props.onChangeRate(props.id, parseFloat(e.target.value) || 0),
-	onChangeCurrency: e => props.onChangeCurrency(props.id, e.target.value),
-	onChangeAmount: e => props.onChangeAmount(props.id, parseFloat(e.target.value) / props.rate),
+	onChangeRate: e => props.onChangeRate(parseFloat(e.target.value) || 0),
+	onChangeCurrency: e => props.onChangeCurrency(e.target.value),
+	onChangeAmount: e => props.onChangeAmount(parseFloat(e.target.value) / props.rate),
+	onDelete: () => props.onDelete(),
 }))
 
 const currencyCardStyle = theme => ({

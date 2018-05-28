@@ -66,5 +66,4 @@ const converters = [
 storiesOf('ConversionScreen', module)
 	.add('default', () => <ConversionScreen
 							converters={converters}
-							onCreate={action('onCreate')}
 							/>)

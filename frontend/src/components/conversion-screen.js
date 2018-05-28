@@ -6,6 +6,7 @@ import {withStyles} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add'
 import {CurrencyCard} from './currency-card'
+import {withConversionScreenState} from '../enhancers'
 
 export const CreateButton = props =>
 <Button
@@ -30,6 +31,7 @@ const conversionScreenStyle = theme => ({
 })
 
 export const ConversionScreen = compose(
+	withConversionScreenState,
 	withStyles(conversionScreenStyle)
 )(props =>
 <div className={props.classes.conversionScreen}>
@@ -37,6 +39,7 @@ export const ConversionScreen = compose(
 		map(c => <CurrencyCard {...c}
 			key={c.id}
 			square
+			{...props}
 			/>, props.converters)
 	}
 

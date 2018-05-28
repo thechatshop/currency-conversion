@@ -1,5 +1,5 @@
-import withConverterState from './list-enhancer';
+import withConversionScreenState from './conversion-screen-enhancer';
 
 export {
-  withConverterState
+  withConversionScreenState
 }
